@@ -3,4 +3,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  # config/routes.rb
+  namespace :api do
+    post 'register', to: 'users#register'
+    post 'login', to: 'users#login'
+  end
 end
