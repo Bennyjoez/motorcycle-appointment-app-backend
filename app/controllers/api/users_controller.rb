@@ -1,6 +1,4 @@
 class Api::UsersController < ApplicationController
-  # skip_before_action :verify_authenticity_token
-
   def register
     user = User.new(username: params[:username])
 
