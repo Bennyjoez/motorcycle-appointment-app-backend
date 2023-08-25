@@ -8,15 +8,20 @@ class Api::ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = @user.reservations.build(reservation_params)
+    existing_reservation = Reservation.find_by(motorcycle_id: reservation_params[:motorcycle_id], date: reservation_params[:date])
 
-    if @reservation.save
-      render json: @reservation, status: :created
+    if existing_reservation
+      render json: { error: 'Reservation for this motorcycle and date already exists' }, status: :unprocessable_entity
     else
-      render json: @reservation.errors, status: :unprocessable_entity
+      @reservation = @user.reservations.build(reservation_params)
+
+      if @reservation.save
+        render json: @reservation, status: :created
+      else
+        render json: @reservation.errors, status: :unprocessable_entity
+      end
     end
   end
-
   # Other actions and private methods
   def destroy
     if @reservation.destroy
