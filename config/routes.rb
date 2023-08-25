@@ -9,7 +9,10 @@ Rails.application.routes.draw do
     post 'register', to: 'users#register'
     post 'login', to: 'users#login'
     
-    resources :reservations, only: [:index, :create, :destroy]
+    resources :users, only: [] do
+      resources :reservations, only: [:index, :create]
+    end
+    resources :reservations, only: [:destroy]
     resources :motorcycles, only: [:index, :show, :create, :destroy]
   end
 end
