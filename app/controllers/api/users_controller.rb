@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   def register
-    user = User.new(username: params[:username])
+    user = User.find_or_initialize_by(username: params[:username])
 
     if user.save
       render json: user, status: :created

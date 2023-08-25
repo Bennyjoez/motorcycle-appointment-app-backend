@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   namespace :api do
     post 'register', to: 'users#register'
     post 'login', to: 'users#login'
+    
+    resources :users, only: [] do
+      resources :reservations, only: [:index, :create]
+    end
+    resources :reservations, only: [:destroy]
     resources :motorcycles, only: [:index, :show, :create, :destroy]
   end
 end
