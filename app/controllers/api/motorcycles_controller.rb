@@ -20,11 +20,11 @@ class Api::MotorcyclesController < ApplicationController
   end
 
   def destroy
-    motorcycle = Motorcycle.find(params[:motorcycle_id])
+    motorcycle = Motorcycle.find(params[:id])
     if motorcycle.destroy
-      render json: { message: 'Motorcycle deleted successfully' }
+      render json: { message: 'Motorcycle was deleted successfully' }
     else
-      render json: { error: 'Failed to delete motorcycle' }, status: :unprocessable_entity
+      render json: { error: 'Failed to delete the motorcycle' }, status: :unprocessable_entity
     end
   end
 
