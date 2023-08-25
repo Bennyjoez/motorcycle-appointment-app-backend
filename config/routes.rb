@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     post 'login', to: 'users#login'
     
     resources :reservations, only: [:index, :create, :destroy]
+    resources :motorcycles, only: [:index, :show, :create, :destroy]
   end
 end
