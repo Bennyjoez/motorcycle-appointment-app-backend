@@ -24,6 +24,8 @@ default: &default
 development:
   <<: *default
   database: motorcycle_appointment_app_backend_development
+  username: postgres
+  password: new
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,7 +60,8 @@ development:
 test:
   <<: *default
   database: motorcycle_appointment_app_backend_test
-
+  username: postgres
+  password: new
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -82,5 +85,5 @@ test:
 production:
   <<: *default
   database: motorcycle_appointment_app_backend_production
-  username: motorcycle_appointment_app_backend
-  password: <%= ENV["MOTORCYCLE_APPOINTMENT_APP_BACKEND_DATABASE_PASSWORD"] %>
+  username: postgres
+  password: new
