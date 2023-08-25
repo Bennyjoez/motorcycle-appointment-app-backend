@@ -1,6 +1,6 @@
 class Api::ReservationsController < ApplicationController
   before_action :set_reservation, only: [:destroy]
-  before_action :set_user, only: [:index, :create]
+  before_action :set_user, only: %i[index create]
 
   def index
     @reservations = @user.reservations
@@ -20,7 +20,7 @@ class Api::ReservationsController < ApplicationController
   # Other actions and private methods
   def destroy
     if @reservation.destroy
-      render json: { message: 'Reservation deleted successfully!'}
+      render json: { message: 'Reservation deleted successfully!' }
     else
       render json: { error: 'Failed to delete the reservation' }, status: :unprocessable_entity
     end
@@ -34,9 +34,9 @@ class Api::ReservationsController < ApplicationController
 
   def set_user
     @user = User.find_by(id: params[:user_id])
-    unless @user
-      render json: { error: 'User not found' }, status: :not_found
-    end
+    return if @user
+
+    render json: { error: 'User not found' }, status: :not_found
   end
 
   def reservation_params
