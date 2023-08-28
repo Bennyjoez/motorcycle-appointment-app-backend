@@ -49,3 +49,4 @@ group :development do
 end
 
 gem 'rubocop', '>= 1.0', '< 2.0'
+gem 'rack-cors', require: 'rack/cors'
