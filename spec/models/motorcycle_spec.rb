@@ -11,6 +11,12 @@ RSpec.describe Motorcycle, type: :model do
     expect(motorcycle).to be_valid
   end
 
+  it 'invalidates with a duplicate name' do
+    create(:motorcycle, name: 'Cruiser')
+    new_motorcycle = build(:motorcycle, name: 'Cruiser')
+    expect(new_motorcycle).to_not be_valid
+  end
+
   it 'invalidates without a name' do
     motorcycle2 = build(:motorcycle, name: nil)
     expect(motorcycle2).to_not be_valid
