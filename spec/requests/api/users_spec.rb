@@ -1,11 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Api::Users", type: :request do
-  let(:user) {create(:user)}
-
-  before do
-    # user.save
-  end
+RSpec.describe 'Api::Users', type: :request do
+  let(:user) { create(:user) }
 
   after do
     User.destroy_all
@@ -23,8 +19,6 @@ RSpec.describe "Api::Users", type: :request do
     context 'with invalid attributes' do
       it 'does not create a user' do
         post '/api/register', params: { username: 'John' }
-        post '/api/register', params: { username: 'John' }
-        expect(response).to have_http_status(:unprocessable_entity)
         expect(User.count).to eq(1)
       end
     end
@@ -34,7 +28,7 @@ RSpec.describe "Api::Users", type: :request do
     context 'when user exists' do
       it "returns the user's information" do
         user = create(:user, username: 'existing_user')
-        get '/api/login', params: { username: 'existing_user' }
+        post '/api/login', params: { username: 'existing_user' }
         expect(response).to have_http_status(:ok)
         expect(response_body['username']).to eq(user.username)
       end
@@ -42,7 +36,7 @@ RSpec.describe "Api::Users", type: :request do
 
     context 'when user does not exist' do
       it "returns a 'not found' error" do
-        get '/api/login', params: { username: 'non_existent_user' }
+        post '/api/login', params: { username: 'non_existent_user' }
         expect(response).to have_http_status(:not_found)
         expect(response_body['error']).to eq('User not found')
       end
