@@ -5,15 +5,15 @@ RSpec.describe 'Api::Reservations', type: :request do
   let(:motorcycle) { create(:motorcycle) }
 
   describe 'GET #index' do
-  it 'returns a list of reservations' do
-    create(:reservation, user: user, motorcycle:)
-    create(:reservation, user: user, motorcycle:)
-    create(:reservation, user: user, motorcycle:)
-    get "/api/users/#{user.id}/reservations"
-    expect(response).to have_http_status(:ok)
-    expect(response_body.count).to eq(3)
+    it 'returns a list of reservations' do
+      create(:reservation, user:, motorcycle:)
+      create(:reservation, user:, motorcycle:)
+      create(:reservation, user:, motorcycle:)
+      get "/api/users/#{user.id}/reservations"
+      expect(response).to have_http_status(:ok)
+      expect(response_body.count).to eq(3)
+    end
   end
-end
 
   describe 'POST #create' do
     context 'with valid attributes' do

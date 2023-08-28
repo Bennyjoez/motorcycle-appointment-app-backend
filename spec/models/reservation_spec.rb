@@ -17,7 +17,7 @@ RSpec.describe Reservation, type: :model do
     it 'validates uniqueness of motorcycle_id and date' do
       existing_reservation = create(:reservation)
       subject = build(:reservation, motorcycle: existing_reservation.motorcycle, date: existing_reservation.date)
-      
+
       expect(subject).to_not be_valid
       expect(subject.errors[:motorcycle_id]).to include('has already been taken')
     end

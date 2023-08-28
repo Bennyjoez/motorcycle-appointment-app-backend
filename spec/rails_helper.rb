@@ -64,7 +64,7 @@ RSpec.configure do |config|
       with.test_framework :rspec
       with.library :rails
     end
-  # arbitrary gems may also be filtered via:
-  # config.filter_gems_from_backtrace("gem name")
-   end
+    # arbitrary gems may also be filtered via:
+    # config.filter_gems_from_backtrace("gem name")
+  end
 end
