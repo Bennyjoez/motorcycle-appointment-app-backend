@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :user do
-    username { 'MyString' }
+    username { 'John' }
   end
 end
