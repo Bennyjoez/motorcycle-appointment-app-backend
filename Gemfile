@@ -48,5 +48,6 @@ group :development do
   # gem "spring"
 end
 
-gem 'rack-cors', require: 'rack/cors'gem 'rubocop', '>= 1.0', '< 2.0'
+gem 'rack-cors', require: 'rack/cors'
 
+gem 'rubocop', '>= 1.0', '< 2.0'
