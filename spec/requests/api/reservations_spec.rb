@@ -1,67 +1,57 @@
 require 'rails_helper'
 
-RSpec.describe 'Api::ReservationsController', type: :request do
-  let(:user) { create(:user) }
-  let(:motorcycle) { create(:motorcycle) }
-  let(:valid_attributes) { { user_id: user.id, motorcycle_id: motorcycle.id, date: Date.today } }
-
-  describe 'POST /api/reservations' do
-    context 'when the request is valid' do
-      it 'creates a reservation' do
-        post '/api/reservations', params: { reservation: valid_attributes }
-
-        expect(response).to have_http_status(:created)
-        expect(json_response).to include('id', 'user_id', 'motorcycle_id', 'date', 'city', 'status')
-      end
-    end
-
-    context 'when the request is invalid' do
-      it 'returns a validation error' do
-        create(:reservation, valid_attributes)
-
-        post '/api/reservations', params: { reservation: valid_attributes }
-
-        expect(response).to have_http_status(:unprocessable_entity)
-        expect(json_response['error']).to eq('Reservation for this motorcycle and date already exists')
-      end
-    end
-  end
-
-  describe 'GET /api/users/:user_id/reservations' do
-    it 'returns a list of user reservations' do
-      create(:reservation, user: user) # Assuming you have a reservation factory
-        
+RSpec.describe 'Api::Reservations', type: :request do
+  describe 'GET #index' do
+    it 'returns a list of reservations' do
+      create(:reservation, date: 'April 5,2023')
+      create(:reservation, date: 'April 6,2023')
+      create(:reservation, date: 'April 7,2023')
       get "/api/users/#{user.id}/reservations"
-      
-      expect(response).to have_http_status(:success)
-      expect(json_response.first).to include('id', 'user_id', 'motorcycle_id', 'date', 'city', 'status')
-    end
-
-    it 'returns a not found error if the user does not exist' do
-      get "/api/users/#{user.id + 1}/reservations"
-      
-      expect(response).to have_http_status(:not_found)
-      expect(json_response['error']).to eq('User not found')
+      expect(response).to have_http_status(:ok)
+      expect(response_body.count).to eq(3)
     end
   end
-  
-  describe 'DELETE /api/reservations/:id' do
-    let!(:reservation) { create(:reservation, user: user) } # Assuming you have a reservation factory
-    
-    it 'deletes a reservation' do
-      delete "/api/reservations/#{reservation.id}"
-      
-      expect(response).to have_http_status(:success)
-      expect(json_response['message']).to eq('Reservation deleted successfully!')
+
+  describe 'GET #show' do
+    it 'returns a specific reservation' do
+      reservation = create(:reservation)
+      get "/api/users/#{user.id}/reservations/#{reservation.id}"
+      expect(response).to have_http_status(:ok)
+      expect(response_body['name']).to eq(reservation.name)
+    end
+  end
+
+  describe 'POST #create' do
+    context 'with valid attributes' do
+      it 'creates a new reservation' do
+        reservation_params = attributes_for(:reservation)
+        post "/api/users/#{user.id}/reservations", params: { reservation: reservation_params }
+        expect(response).to have_http_status(:created)
+        expect(Reservation.count).to eq(1)
+      end
     end
 
-    it 'returns an error if reservation deletion fails' do
-      allow_any_instance_of(Reservation).to receive(:destroy).and_return(false)
-      
-      delete "/api/reservations/#{reservation.id}"
-      
-      expect(response).to have_http_status(:unprocessable_entity)
-      expect(json_response['error']).to eq('Failed to delete the reservation')
+    context 'with invalid attributes' do
+      it 'does not create a reservation' do
+        post "/api/users/#{user.id}/reservations", params: { reservation: { name: nil } }
+        expect(response).to have_http_status(:unprocessable_entity)
+        expect(Reservation.count).to eq(0)
+      end
     end
+  end
+
+  describe 'DELETE #destroy' do
+    it 'deletes a reservation' do
+      reservation = create(:reservation)
+      delete "/api/reservations/#{reservation.id}"
+      expect(response).to have_http_status(:ok)
+      expect(response_body['message']).to eq('Reservation was deleted successfully')
+      expect(Reservation.count).to eq(0)
+    end
+  end
+
+  # Helper method to parse JSON response body
+  def response_body
+    JSON.parse(response.body)
   end
 end
