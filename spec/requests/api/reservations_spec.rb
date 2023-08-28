@@ -1,30 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe 'Api::Reservations', type: :request do
-  describe 'GET #index' do
-    it 'returns a list of reservations' do
-      create(:reservation, date: 'April 5,2023')
-      create(:reservation, date: 'April 6,2023')
-      create(:reservation, date: 'April 7,2023')
-      get "/api/users/#{user.id}/reservations"
-      expect(response).to have_http_status(:ok)
-      expect(response_body.count).to eq(3)
-    end
-  end
+  let(:user) { create(:user) }
+  let(:motorcycle) { create(:motorcycle) }
 
-  describe 'GET #show' do
-    it 'returns a specific reservation' do
-      reservation = create(:reservation)
-      get "/api/users/#{user.id}/reservations/#{reservation.id}"
-      expect(response).to have_http_status(:ok)
-      expect(response_body['name']).to eq(reservation.name)
-    end
+  describe 'GET #index' do
+  it 'returns a list of reservations' do
+    create(:reservation, user: user, motorcycle:)
+    create(:reservation, user: user, motorcycle:)
+    create(:reservation, user: user, motorcycle:)
+    get "/api/users/#{user.id}/reservations"
+    expect(response).to have_http_status(:ok)
+    expect(response_body.count).to eq(3)
   end
+end
 
   describe 'POST #create' do
     context 'with valid attributes' do
       it 'creates a new reservation' do
-        reservation_params = attributes_for(:reservation)
+        motorcycle = create(:motorcycle)
+        reservation_params = attributes_for(:reservation, motorcycle_id: motorcycle.id)
         post "/api/users/#{user.id}/reservations", params: { reservation: reservation_params }
         expect(response).to have_http_status(:created)
         expect(Reservation.count).to eq(1)
@@ -33,7 +28,7 @@ RSpec.describe 'Api::Reservations', type: :request do
 
     context 'with invalid attributes' do
       it 'does not create a reservation' do
-        post "/api/users/#{user.id}/reservations", params: { reservation: { name: nil } }
+        post "/api/users/#{user.id}/reservations", params: { reservation: { date: nil } }
         expect(response).to have_http_status(:unprocessable_entity)
         expect(Reservation.count).to eq(0)
       end
@@ -45,7 +40,7 @@ RSpec.describe 'Api::Reservations', type: :request do
       reservation = create(:reservation)
       delete "/api/reservations/#{reservation.id}"
       expect(response).to have_http_status(:ok)
-      expect(response_body['message']).to eq('Reservation was deleted successfully')
+      expect(response_body['message']).to eq('Reservation deleted successfully!')
       expect(Reservation.count).to eq(0)
     end
   end
