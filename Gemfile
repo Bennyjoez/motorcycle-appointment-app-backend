@@ -53,4 +53,4 @@ gem 'rack-cors', require: 'rack/cors'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-gem "rswag", "~> 2.10"
+gem 'rswag', '~> 2.10'
