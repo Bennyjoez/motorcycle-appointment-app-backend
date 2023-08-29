@@ -28,13 +28,13 @@
 
 # 📖 Motorcycle Appointment Backend <a name="about-project"></a>
 
-**Motorcycle Appointment Backend** is an RESTful API that serves as the backend of a Motorcycle Appointment App used to add motorcycles, make reservations and also manage the two. It was created using Ruby on Rails v7.0. The API is consumed using a react Front-end to complete the app. However, it can still be used by other apps that will be able to follows the documentation provided. 
+**Motorcycle Appointment Backend** is an RESTful API that serves as the backend of a Motorcycle Appointment App used to add motorcycles, make reservations and also manage the two. It was created using Ruby on Rails v7.0. The API is consumed using a react Front-end to complete the app. However, it can still be used by other apps that will be able to follows the documentation provided.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-- Ruby 
+- Ruby
 - Ruby on Rails
 - Postgresql
 
@@ -58,14 +58,15 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need the following installed: 
+In order to run this project you need the following installed:
+
 - Ruby
 - Ruby on rails gem
 - Postgresql
 
 ### Setup
 
-Clone this repository to your desired folder with the following command: 
+Clone this repository to your desired folder with the following command:
 
 ```ssh
   mkdir new-folder
@@ -75,12 +76,21 @@ Clone this repository to your desired folder with the following command:
 
 ### Install
 
-Then install the project's necessary dependencies with: 
+Then install the project's necessary dependencies with:
 
 `bundle install`
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Documentation
+
+To access the API Documentation ,Follow the same procedure above and run the command and visit the link below:-
+
+```ssh
+rails server
+```
+
+[Visit API Documentation](http://localhost:3000/api-docs)
 
 <!-- AUTHORS -->
 
@@ -97,7 +107,6 @@ Then install the project's necessary dependencies with:
 - Twitter: [@bennyjoezz](https://twitter.com/bennyjoezz)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/bennyjoez/)
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
@@ -105,7 +114,6 @@ Then install the project's necessary dependencies with:
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Admin**
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -132,14 +140,13 @@ Give this project a ⭐️ if you like it !
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 Shout out to:
+
 - Ruby documentation
 - Rails documentation
 - Microverse staff, community and students
 - [Murat Komaz](https://www.behance.net/muratk)
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- LICENSE -->
 
