@@ -15,7 +15,7 @@ RSpec.describe 'Api::Motorcycles', type: :request do
   describe 'GET #show' do
     it 'returns a specific motorcycle' do
       motorcycle = create(:motorcycle)
-      get '/api/motorcycles/:id', params: { motorcycle_id: motorcycle.id }
+      get "/api/motorcycles/#{motorcycle.id}"
       expect(response).to have_http_status(:ok)
       expect(response_body['name']).to eq(motorcycle.name)
     end
