@@ -152,6 +152,6 @@ Shout out to:
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/Bennyjoez/motorcycle-appointment-app-backend/blob/f7a83b09a580a43e4ee665c7d02463386a4aafc6/LICENSE) licensed.
+This project is [MIT](https://github.com/Bennyjoez/motorcycle-appointment-app-backend/blob/5397cf85bf18a3561e0c30a9d14402d16b9933d3/LICENSE.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
