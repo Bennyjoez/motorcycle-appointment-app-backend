@@ -5,7 +5,7 @@ class Api::MotorcyclesController < ApplicationController
   end
 
   def show
-    motorcycle = Motorcycle.find(params[:motorcycle_id])
+    motorcycle = Motorcycle.find(params[:id])
     render json: motorcycle
   end
 
