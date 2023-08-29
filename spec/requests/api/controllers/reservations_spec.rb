@@ -6,9 +6,9 @@ RSpec.describe 'Api::Reservations', type: :request do
 
   describe 'GET #index' do
     it 'returns a list of reservations' do
-      create(:reservation, user:, motorcycle:)
-      create(:reservation, user:, motorcycle:)
-      create(:reservation, user:, motorcycle:)
+      create(:reservation, user:, motorcycle:, date: '05-03-2023')
+      create(:reservation, user:, motorcycle:, date: '05-04-2023')
+      create(:reservation, user:, motorcycle:, date: '05-05-2023')
       get "/api/users/#{user.id}/reservations"
       expect(response).to have_http_status(:ok)
       expect(response_body.count).to eq(3)
