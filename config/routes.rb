@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     post 'login', to: 'users#login'
     
     resources :users, only: [] do
-      resources :reservations, only: [:index, :create]
+      resources :reservations, only: [:index, :create, :destroy]
     end
     resources :reservations, only: [:destroy]
     resources :motorcycles, only: [:index, :show, :create, :destroy]
