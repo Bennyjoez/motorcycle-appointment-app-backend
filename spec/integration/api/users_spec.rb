@@ -15,9 +15,9 @@ RSpec.describe 'api/users', type: :request do
 
       response(200, 'successful') do
         schema type: :object,
-          properties: {
-            username: { type: :string }
-          }
+               properties: {
+                 username: { type: :string }
+               }
         let(:user_params) { { username: 'john' } }
         run_test!
       end
@@ -38,9 +38,9 @@ RSpec.describe 'api/users', type: :request do
 
       response(200, 'successful') do
         schema type: :object,
-          properties: {
-            username: { type: :string }
-          }
+               properties: {
+                 username: { type: :string }
+               }
         let(:user_params) { { username: 'john' } }
         run_test!
       end
