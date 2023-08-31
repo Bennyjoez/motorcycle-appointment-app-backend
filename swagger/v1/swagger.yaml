@@ -48,6 +48,8 @@ paths:
                     type: integer
                   duration:
                     type: integer
+                  description:
+                    type: text
         "422":
           description: unprocessable entity
           content:
@@ -73,6 +75,8 @@ paths:
                   type: integer
                 duration:
                   type: integer
+                description:
+                  type: text
               required:
                 - name
                 - amount
@@ -268,6 +272,8 @@ paths:
               schema:
                 type: object
                 properties:
+                  id:
+                    type: integer
                   username:
                     type: string
       requestBody:
@@ -292,6 +298,8 @@ paths:
               schema:
                 type: object
                 properties:
+                  id:
+                    type: integer
                   username:
                     type: string
       requestBody:
