@@ -78,6 +78,17 @@ Clone this repository to your desired folder with the following command:
   git clone https://github.com/Bennyjoez/motorcycle-appointment-app-backend.git
 ```
 
+### Getting Started
+
+Use the below commands in sequence to start the Api Server:-
+
+```ssh
+rails db:create
+rails db:migrate
+rails db:seed
+rails server
+```
+
 ### Install
 
 Then install the project's necessary dependencies with:
