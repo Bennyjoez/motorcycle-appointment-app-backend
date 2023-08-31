@@ -9,7 +9,7 @@ RSpec.describe Reservation, type: :model do
       existing_reservation = create(:reservation)
       subject = build(:reservation, motorcycle: existing_reservation.motorcycle, date: existing_reservation.date)
       expect(subject).not_to be_valid
-      expect(subject.errors[:motorcycle_id]).to include('has already been taken')
+      expect(subject.errors[:motorcycle_id]).to include('Motorcycle is already reserved for this date')
     end
   end
 
@@ -19,7 +19,7 @@ RSpec.describe Reservation, type: :model do
       subject = build(:reservation, motorcycle: existing_reservation.motorcycle, date: existing_reservation.date)
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:motorcycle_id]).to include('has already been taken')
+      expect(subject.errors[:motorcycle_id]).to include('Motorcycle is already reserved for this date')
     end
   end
 end
