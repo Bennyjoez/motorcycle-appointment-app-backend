@@ -12,3 +12,8 @@ motorcycles_data = [
   { name: "Kawasaki", image: "https://image.kilimall.com/kenya/shop/store/goods/7442/2021/07/7442_06801939004978952_720.jpg.webp", amount: 170, duration: 2 },
   { name: "Suzuki", image: "https://image.kilimall.com/kenya/shop/store/goods/7442/2021/07/7442_06801939004978952_720.jpg.webp", amount: 160, duration: 1 }
 ]
+motorcycles_data.each do |motorcycle_data|
+  Motorcycle.create(motorcycle_data)
+end
+
+puts "Motorcycles created successfully."
