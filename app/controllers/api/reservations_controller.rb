@@ -24,7 +24,6 @@ class Api::ReservationsController < ApplicationController
     end
   end
 
-  # Other actions and private methods
   def destroy
     if @reservation.destroy
       render json: { message: 'Reservation deleted successfully!' }
