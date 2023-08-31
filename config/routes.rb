@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  
-
   namespace :api do
     post 'register', to: 'users#register'
     post 'login', to: 'users#login'
