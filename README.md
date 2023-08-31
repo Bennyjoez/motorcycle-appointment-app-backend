@@ -30,6 +30,10 @@
 
 **Motorcycle Appointment Backend** is an RESTful API that serves as the backend of a Motorcycle Appointment App used to add motorcycles, make reservations and also manage the two. It was created using Ruby on Rails v7.0. The API is consumed using a react Front-end to complete the app. However, it can still be used by other apps that will be able to follows the documentation provided.
 
+### FrontEnd APP Repo Link
+
+[Click Here to Visit Repo](https://github.com/Bennyjoez/motorcycle-appointment-app-front-end)
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -74,6 +78,17 @@ Clone this repository to your desired folder with the following command:
   git clone https://github.com/Bennyjoez/motorcycle-appointment-app-backend.git
 ```
 
+### Getting Started
+
+Use the below commands in sequence to start the Api Server:-
+
+```ssh
+rails db:create
+rails db:migrate
+rails db:seed
+rails server
+```
+
 ### Install
 
 Then install the project's necessary dependencies with:
@@ -99,6 +114,7 @@ rails server
 👤 **‌‌‌Harshika Govind**
 
 - GitHub: [@harshi0102](https://github.com/harshi0102)
+- Twitter: [@harshika0102me](https://twitter.com/harshika0102me)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/harshikagovind/)
 
 👤 **Bennyjoez**
