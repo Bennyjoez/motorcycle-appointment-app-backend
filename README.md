@@ -103,6 +103,7 @@ rails server
 👤 **‌‌‌Harshika Govind**
 
 - GitHub: [@harshi0102](https://github.com/harshi0102)
+- Twitter: [@harshika0102me](https://twitter.com/harshika0102me)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/harshikagovind/)
 
 👤 **Bennyjoez**
