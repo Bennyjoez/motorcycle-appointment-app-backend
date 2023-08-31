@@ -5,7 +5,7 @@ RSpec.describe Reservation, type: :model do
     it { should validate_presence_of(:date) }
     it { should validate_presence_of(:city) }
 
-    it 'validates case-insensitive uniqueness of motorcycle_id within the scope of date' do
+    it 'validates uniqueness of motorcycle_id within the scope of date' do
       existing_reservation = create(:reservation)
       subject = build(:reservation, motorcycle: existing_reservation.motorcycle, date: existing_reservation.date)
       expect(subject).not_to be_valid
