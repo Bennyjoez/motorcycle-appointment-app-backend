@@ -34,6 +34,17 @@
 
 [Click Here to Visit Repo](https://github.com/Bennyjoez/motorcycle-appointment-app-front-end)
 
+### Kanban Board Backend Link
+[Click Here to Visit](https://github.com/Bennyjoez/motorcycle-appointment-app-backend/projects/1)
+### Kanban Board FrontEnd Link
+[Click Here to Visit](https://github.com/Bennyjoez/motorcycle-appointment-app-front-end/projects/1)
+### Initial State of Kanban Board
+![image](https://github.com/Bennyjoez/motorcycle-appointment-app-backend/assets/108334376/8f639885-944a-4cf3-84c3-4a542f6b1af6)
+### Final State of Kanban Board
+![image](https://github.com/Bennyjoez/motorcycle-appointment-app-backend/assets/108334376/06ed7888-0781-4217-ad4b-7ec7213c72b1)
+
+### Team members: 4 (Benson Njuguna @bennyjoez, Adams Bamfo @Adams-Ghub, Harshika Govind @harshi0102, Emmanuel Nwoye @Mikey1-nuel)
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
