@@ -1,0 +1,319 @@
+---
+openapi: 3.0.1
+info:
+  title: Motorcycle Appointment App API V1
+  version: v1
+paths:
+  "/api/motorcycles":
+    get:
+      summary: list motorcycles
+      responses:
+        "200":
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    image:
+                      type: string
+                    amount:
+                      type: integer
+                    duration:
+                      type: integer
+    post:
+      summary: create motorcycle
+      parameters: []
+      responses:
+        "201":
+          description: created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  image:
+                    type: string
+                  amount:
+                    type: integer
+                  duration:
+                    type: integer
+                  description:
+                    type: text
+        "422":
+          description: unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                image:
+                  type: string
+                amount:
+                  type: integer
+                duration:
+                  type: integer
+                description:
+                  type: text
+              required:
+                - name
+                - amount
+  "/api/motorcycles/{motorcycle_id}":
+    parameters:
+      - name: motorcycle_id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: get motorcycle
+      responses:
+        "200":
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  image:
+                    type: string
+                  amount:
+                    type: integer
+                  duration:
+                    type: integer
+        "404":
+          description: not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+    delete:
+      summary: delete motorcycle
+      responses:
+        "200":
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "422":
+          description: unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+  "/api/users/{user_id}/reservations":
+    parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: list reservations
+      responses:
+        "200":
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    user_id:
+                      type: integer
+                    motorcycle_id:
+                      type: integer
+                    date:
+                      type: date
+                    city:
+                      type: string
+                    status:
+                      type: string
+        "404":
+          description: not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+    post:
+      summary: create reservation
+      parameters: []
+      responses:
+        "201":
+          description: created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  user_id:
+                    type: integer
+                  motorcycle_id:
+                    type: integer
+                  date:
+                    type: date
+                  city:
+                    type: string
+                  status:
+                    type: string
+        "422":
+          description: unprocessable entity due to duplicate reservation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                motorcycle_id:
+                  type: integer
+                date:
+                  type: date
+                city:
+                  type: string
+                status:
+                  type: string
+              required:
+                - motorcycle_id
+                - date
+                - city
+  "/api/users/{user_id}/reservations/{reservation_id}":
+    parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: reservation_id
+        in: path
+        required: true
+        schema:
+          type: integer
+    delete:
+      summary: delete reservation
+      responses:
+        "200":
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "404":
+          description: not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+  "/api/register":
+    post:
+      summary: register user
+      parameters: []
+      responses:
+        "200":
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  username:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+                - username
+  "/api/login":
+    post:
+      summary: login user
+      parameters: []
+      responses:
+        "200":
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  username:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+                - username
+servers:
+  - url: http://{defaultHost}
+    variables:
+      defaultHost:
+        default: localhost:3000
