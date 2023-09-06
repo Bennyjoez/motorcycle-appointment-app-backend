@@ -140,6 +140,7 @@ rails server
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Admin**
+- [ ] **Proper Authentication**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
