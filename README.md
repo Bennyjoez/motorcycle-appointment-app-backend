@@ -134,6 +134,18 @@ rails server
 - Twitter: [@bennyjoezz](https://twitter.com/bennyjoezz)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/bennyjoez/)
 
+👤 **Adams Bamfo**
+
+- GitHub: [Adams-Ghub](https://github.com/Adams-Ghub)
+- Twitter: [@bamfoaf](https://twitter.com/bamfoaf)
+- LinkedIn: [Adams Bamfo](https://www.linkedin.com/in/adams-bamfo/)
+
+👤 **Emmanuel Nwoye**
+
+- GitHub: [Githubhandle](https://github.com/Mikey1-nuel)
+- Twitter: [Twitterhandle](https://twitter.com/Mikey_nuel)
+- LinkedIn: [LinkedInhandle](https://www.linkedin.com/in/emmanuel-nwoye-5915141b8/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
