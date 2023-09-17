@@ -316,4 +316,4 @@ servers:
   - url: http://{defaultHost}
     variables:
       defaultHost:
-        default: localhost:3000
+        default: motorcycle-appointment-81e43ce1a75c.herokuapp.com/
