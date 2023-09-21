@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: motorcycle_appointment_app_backend_production
-  username: motorcycle_appointment_app_backend
-  password: <%= ENV["MOTORCYCLE_APPOINTMENT_APP_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

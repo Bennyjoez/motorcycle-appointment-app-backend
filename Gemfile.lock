@@ -241,7 +241,7 @@ DEPENDENCIES
   bootsnap
   debug
   factory_bot_rails
-  pg (~> 1.1)
+  pg
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.7)
