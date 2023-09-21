@@ -1,0 +1,18 @@
+databases:
+  - name: motorcycle-db
+    databaseName: motorcycledb
+    user: motorcycleappointment
+
+services:
+  - type: web
+    name: motorcycle-appointment
+    runtime: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: motorcycledb
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
