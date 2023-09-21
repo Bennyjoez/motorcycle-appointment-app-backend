@@ -316,4 +316,4 @@ servers:
   - url: https://{defaultHost}
     variables:
       defaultHost:
-        default: motorcycle-appointment-81e43ce1a75c.herokuapp.com/
+        default: motorcycle-appointment.onrender.com/
