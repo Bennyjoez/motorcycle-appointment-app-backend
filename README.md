@@ -116,7 +116,7 @@ To access the API Documentation ,Follow the same procedure above and run the com
 rails server
 ```
 
-[Visit API Documentation](http://localhost:3000/api-docs)
+[Visit API Documentation](https://motorcycle-appointment.onrender.com/api-docs)
 
 <!-- AUTHORS -->
 
